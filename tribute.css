@@ -1,0 +1,12 @@
+#image {
+ max-width: 250px;
+ display: block; 
+ height: auto;
+ margin: auto;
+}
+main {
+  background-color: black;
+  font-family: tarzan;
+  color: #EB0B0D;
+  text-align:center;
+}

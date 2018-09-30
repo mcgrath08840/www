@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Cheat Sheet</title>
+    <meta name="description" content="Awesome Blog">
+    <meta name="keywords" content="web design, web dev, html">
+
+    <style type="text/css">
+        #main-header {
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+        
+        #main-footer {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-header">
+        <h1>My Website</h1>
+    </header>
+    <a href="tribute.html">Go to Tribute Page</a>
+
+    <main>
+        <h1>Heading 1</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas pariatur fugit expedita neque, voluptatibus dolorem harum, aliquam, quisquam iste sunt optio eos exercitationem ad non ut obcaecati rem voluptatum modi?</p>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas pariatur fugit expedita neque,<strong>voluptatibus</strong> dolorem harum, aliquam, quisquam iste sunt optio eos</p>
+
+
+        <p>Lorem ipsum dolor sit amet <a href="http:google.com" target="_blank">consectetur adipisicing</a> elit. Quas pariatur fugit expedita neque,<em> voluptatibus dolorem harum,</em> aliquam, quisquam iste sunt optio eos exercitationem ad non ut obcaecati
+            rem voluptatum modi</p>
+
+        <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+            <li>List Item 4</li>
+        </ul>
+
+        <ol>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+            <li>List Item 4</li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mike McGrath</td>
+                    <td>mcgrath08840@yahoo.com</td>
+                    <td>52</td>
+                </tr>
+                <tr>
+                    <td>Mike McGrath</td>
+                    <td>mcgrath08840@yahoo.com</td>
+                    <td>52</td>
+                </tr>
+                <tr>
+                    <td>Mike McGrath</td>
+                    <td>mcgrath08840@yahoo.com</td>
+                    <td>52</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <hr>
+        <br>
+
+
+        <form action="process.php" method="POST">
+            <div>
+                <br>
+                <label>First Name:</label>
+                <input type="text" name="firstName" placeholder="Enter First Name Here">
+            </div>
+            <br>
+            <div>
+                <label>Last Name:</label>
+                <input type="text" name="lastName">
+            </div>
+            <br>
+            <div>
+                <label>Email:</label>
+                <input type="email" name="email">
+            </div>
+            <br>
+            <div>
+                <label>Message:</label>
+                <textarea name="message"></textarea>
+            </div>
+            <br>
+            <div>
+                <label>Gender:</label>
+                <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            </div>
+            <br>
+            <div>
+                <label>Age:</label>
+                <input type="number" name="age" value="30">
+            </div>
+            <br>
+            <div>
+                <label>Birthday:</label>
+                <input type="date" name="birthday">
+            </div>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+
+        <!-- Button needs to be hooked in with Javascript to do anything.  Just for demonstration here -->
+        <button>Click Me</button>
+
+        <!-- Image-->
+        <br>
+        <a href="images/Conan_1.jpg">
+            <img src="images/conan_025.jpg" alt="Picture of Conan!" width="250px">
+        </a>
+
+        <blockquote cite="">
+            Lorem
+
+        </blockquote>
+
+        <p>The <abbr title="World Wide Web">WWW</abbr> is awesome</p>
+
+
+    </main>
+    <div style="margin-top:500px"></div>
+    </div>
+    <footer id="main-footer">Copyright &copy; 2018, My Website</footer>
+</body>
+
+</html>
