@@ -1,0 +1,207 @@
+create table public.users (
+id integer,
+name character varying(100) not null,
+constraint users_id_pkey Primary KEY(id)
+)
+
+
+select * from users
+
+create table public.videos(
+id integer PRIMARY KEY,
+user_id integer references public.users,
+name character varying(255) not null
+)
+
+
+insert into videos 
+values (1, 10, 'Test Video');
+
+select * from users
+
+create sequence user_id_sq start 4;
+
+alter table users
+alter column id
+set default nextval('user_id_sq');
+
+alter sequence user_id_sq owned by users.id
+
+insert into users(name)
+values('mike')
+
+create index users_name_index on users(name);
+
+create unique index <index_name> on <Table>(<column>);
+
+
+
+
+#Multi column index
+create index on movies(id, user_id);
+select * from movies where id = 1 and user_id = 2;
+
+#Rebuild an Index
+reindex user_name_index;
+reindex table <Tablename>;
+reindex database <databasename>;
+
+
+# Drop Tables
+drop table public.users cascade;
+drop table if exists videos;
+
+
+create index users_name_index on users(name);
+
+create unique index <index_name> on <Table>(<column>);
+
+
+#Multi column index
+create index on movies(id, user_id);
+select * from movies where id = 1 and user_id = 2;
+
+
+#Rebuild an Index
+reindex user_name_index;
+reindex table <Tablename>;
+reindex database <databasename>;
+
+drop table public.users cascade;
+drop table if exists videos;
+
+
+
+
+# Views
+CREATE VIEW total_revenue_per_customer AS
+select customers.id, customers.first_name, customers.last_name, SUM(items.price) 
+from customers
+inner join purchases
+on customers.id = purchases.customer_id
+inner join items on purchases.item_id = items.id
+group by customers.id;
+
+select * from total_revenue_per_customer
+
+drop view total_revenue_per_customer
+
+insert into purchases values(11,6,5)
+
+create view awesome_customers as
+select * from total_revenue_per_customer where sum > 150
+
+select * from awesome_customers
+
+
+create view expensive_items as
+select * from items where price > 100;
+
+
+
+#Insert into a view
+select * from expensive_items
+insert into expensive_items (id, name, price)
+values (9, 'DSLR', 400.00)
+
+insert into expensive_items (id, name, price)
+values (10, 'Pencil', 2.00)
+
+drop view expensive_items
+
+#Add constraint on view
+create view expensive_items as
+select * from items where price > 100
+WITH LOCAL CHECK OPTION
+
+insert into expensive_items (id, name, price)
+values (11, 'Pencil', 2.00)
+
+create view non_luxury_items as
+select * from expensive_items where price < 10000
+WITH CASCADED CHECK OPTION;
+
+
+
+# Functions  Built In
+count()
+sum()
+avg()
+
+# HAVING
+
+select customers.first_name, customers.last_name, count(purchases.id) 
+AS Purchase_Count
+from customers
+inner join purchases
+on customers.id = purchases.customer_id
+group by customers.id
+HAVING count(purchases.id) >3;
+
+
+# Dates - 	Formatting?
+		Timezones?
+		Daylight Savings?
+
+		Store dates without timezone data. 
+		Convert when take out of database to local timezone.
+
+timestamp
+date 
+time
+interval
+		
+THis is the standard  
+	select timestamp '2005-10-10 05:16:45'; ISO8601
+
+select to_char(NOW(), 'DD-MM-YYYY');
+select to_char(NOW(), 'DD-MM-YYYY HH:MI:SS');
+select to_char(NOW(), 'FMDay, DD-MM-YYYY HH:MI:SS');
+select to_char(NOW(), 'FMDay,DDth FMMonth DD-MM-YYYY HH:MI:SS');
+
+select to_timestamp( 'Tuesday,16th October', 'FMDay,DDth FMMonth');
+
+
+# OTHER DATA TYPES
+images up to 1 gig in size -  BYTEA
+
+recommended to store images on file system and store the path in the database.
+
+ENUM - Used to limit what can be put in.
+
+	create type mood as ENUM('extremely unhappy', 'unhappy', 'ok', 'happy', 'extremely happy');
+	create table students(
+	name character varying(255),
+	current_mood mood
+	)
+
+	# Order is import.  Stored starting at 0 like a list
+
+# Postgresql can store JSON.
+
+# Nested Select
+
+	select * from items where price > (select avg(items.price) from items);
+
+	select items.name, items.price - (select avg(items.price) from items) from items;
+
+create view expensive_items_diff as
+select *, items.price -
+(select avg(price) from items where price > 100) as "average_diff"
+from items WHERE price > 100;
+
+select * from expensive_items_diff
+
+
+# SERIAL TYPE - pretty much creates a sequencer.  Id's automatically generated.
+
+create table test(
+id SERIAL PRIMARY KEY,
+name text
+)
+
+insert into test (name) values ('Jose')
+
+select * from test
+
+
