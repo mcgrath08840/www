@@ -1,0 +1,34 @@
+/* Type Selector */
+
+h1 {
+    color: orange;
+    text-align: center;
+}
+
+
+/* Descendant Selector */
+
+header p {
+    color: green;
+}
+
+
+/* Descendant Selector multiple depth */
+
+header p span {
+    color: blue;
+}
+
+
+/* class selector */
+
+.highlight {
+    background-color: yellow;
+}
+
+
+/* Descendant selector with class selector to over ride. */
+
+footer .highlight {
+    background-color: lightgray;
+}

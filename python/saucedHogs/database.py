@@ -1,4 +1,5 @@
 from psycopg2 import pool
+from config import config
 
 
 
@@ -41,4 +42,15 @@ class CursorFromConnectionFromPool:
             self.connection.commit()
         Database.return_connection(self.connection)
 
-Database.initialise(user='postgres', password='odin1', database='restManager', host='localhost')
+
+# use database.ini file in ../ini/database.ini
+try:
+    # read connection parameters
+    params = config()
+
+    # connect to PostgreSQL Server
+    print('Connecting to the PostgreSQL database.')
+    Database.initialise(**params)
+except Exception:
+    raise Exception
+

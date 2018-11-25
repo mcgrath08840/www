@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Forms</title>
+</head>
+
+<body>
+    <form>
+        <!-- Select Drop Down-->
+        <label for="favoriteColor">What is your favorite color?</label>
+        <select name="favoriteColor">
+            <option value="colorRed">Red</option>
+            <option value="colorOrange">Orange</option>
+            <option value="colorYellow">Yellow</option>
+        </select>
+        <br><br>
+
+        <!-- Radio Button-->
+        <fieldset>
+            <!-- creates border around elements/groups-->
+            <legend>What is your favorite meal?</legend>
+            <!-- for labeling group-->
+
+            <input type="radio" id="breakfast" name="favoriteMeal" value="meal1"><label for="breakfast">Breakfast</label>
+            <input type="radio" id="lunch" name="favoriteMeal" value="meal2"><label for="lunch">Lunch</label>
+            <input type="radio" id="dinner" name="favoriteMeal" value="meal3"><label for="dinner">Dinner</label>
+        </fieldset>
+        <br><br>
+
+        <!-- Check Box-->
+        <fieldset>
+            <!-- creates border around elements/groups-->
+            <legend>What is your favorite meal?</legend>
+            <!-- for labeling group-->
+
+            <input type="checkbox" id="breakfast" name="favoriteMeal" value="meal1"><label for="breakfast">Breakfast</label>
+            <input type="checkbox" id="lunch" name="favoriteMeal" value="meal2"><label for="lunch">Lunch</label>
+            <input type="checkbox" id="dinner" name="favoriteMeal" value="meal3"><label for="dinner">Dinner</label>
+        </fieldset>
+
+
+        <input type="submit" value="Save!">
+    </form>
+
+
+</body>
+
+</html>
